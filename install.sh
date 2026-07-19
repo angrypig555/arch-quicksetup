@@ -21,9 +21,9 @@ label: gpt
 EOF
 
 echo "formatting disk"
-mkfs.ext4 "$ROOT"
-mkswap "$SWAP"
-mkfs.fat -F 32 "$ESP"
+mkfs.ext4 -F "$ROOT"
+mkswap -f "$SWAP"
+mkfs.fat -F 32 -I "$ESP"
 
 echo "mounting disk"
 mount "$ROOT" /mnt
