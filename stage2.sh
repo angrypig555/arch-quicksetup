@@ -15,7 +15,7 @@ echo "setting hostname"
 echo "arch-vm" > /etc/hostname
 echo "root password is root"
 echo  "root:root" | chpasswd
-useradd -m -G sudo user
+useradd -m -G wheel user
 echo "created priviliged user without a password"
 echo "installing systemd-boot"
 bootctl install
@@ -26,11 +26,12 @@ timeout 0
 editor no
 EOF
 # IF YOU CHANGED THE DISK VARIABLE IN THE FIRST SCRIPT YOU ALSO NEED TO CHANGE IT HERE
+ROOT_UUID=$(blkid -s UUID -o value /dev/sda3)
 cat << EOF > /boot/loader/entries/arch.conf
 title Arch Linux
 linux /vmlinuz-linux
 initrd /initramfs-linux.img
-options root=UUID=$(blkid -s UUID -o value /dev/sda1) rw
+options root=UUID=${ROOT_UUID} rw
 EOF
 cat << EOF > /etc/motd
 If you want to disable this, delete /etc/motd

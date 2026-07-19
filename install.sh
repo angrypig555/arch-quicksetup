@@ -39,7 +39,7 @@ echo "starting stage 2"
 cp stage2.sh /mnt/root/
 chmod +x /mnt/root/stage2.sh
 
-arch-chroot /mnt /root/stage2.sh
+arch-chroot /mnt /bin/bash /root/stage2.sh
 
 echo "installation finished"
 echo "goodbye!"
