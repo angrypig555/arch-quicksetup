@@ -49,5 +49,5 @@ elif [[ "$FW_TYPE" == "UEFI" && "$MODE" == "i3" ]]; then
 elif [[ "$FW_TYPE" == "MBR" && "$MODE" == "minimal" ]]; then
     cd minimal_mbr
     chmod +x install.sh
-    bash.install.sh
+    bash install.sh
 fi
