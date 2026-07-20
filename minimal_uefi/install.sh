@@ -13,6 +13,7 @@ SWAP="${DISK}2"
 ROOT="${DISK}3"
 
 echo "partitioning disk"
+wipefs --all --force "$DISK"
 sfdisk "$DISK"<< EOF
 label: gpt
 ,1GB,C12A7328-F81F-11D2-BA4B-00A0C93EC93B
