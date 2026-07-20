@@ -11,7 +11,7 @@ if [[ -f "$PLAT_FILE" ]]; then
         FW_TYPE="UEFI"
         echo "Detected 64-Bit UEFI"
     else
-        FW_TYPE="IA32"
+        FW_TYPE="UEFI"
         echo "Detected 32-Bit IA32 UEFI"
     fi
 else
@@ -46,4 +46,8 @@ elif [[ "$FW_TYPE" == "UEFI" && "$MODE" == "i3" ]]; then
     cd i3_uefi
     chmod +x install.sh
     bash install.sh
+elif [[ "$FW_TYPE" == "MBR" && "$MODE" == "minimal" ]]; then
+    cd minimal_mbr
+    chmod +x install.sh
+    bash.install.sh
 fi
