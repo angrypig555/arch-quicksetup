@@ -3,11 +3,10 @@ set -euo pipefail
 
 echo "arch vm autoinstall script"
 echo "only for amd64 UEFI vmware machines with the default config"
-echo "if you want to change the timezone or disk, feel free to modify the script"
+echo "if you want to change the timezone, feel free to modify the script"
 echo "this script is fully automatic and assumes you have an internet connection as you already downloaded this"
 echo "setup starting in 10 seconds"
 sleep 10
-# IF YOU CHANGE THIS YOU ALSO NEED TO CHANGE THE DISK IN stage2.sh WHERE THE BOOTLOADER CONFIG IS GENERATED
 
 ESP="${DISK}1"
 SWAP="${DISK}2"
@@ -40,7 +39,7 @@ echo "starting stage 2"
 cp stage2.sh /mnt/root/
 chmod +x /mnt/root/stage2.sh
 
-arch-chroot /mnt /bin/bash /root/stage2.sh
+arch-chroot /mnt /bin/bash -c "DISK='$DISK' ROOT='$ROOT' /root/stage2.sh"
 
 echo "installation finished"
 echo "goodbye!"

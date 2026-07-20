@@ -27,8 +27,7 @@ default arch.conf
 timeout 0
 editor no
 EOF
-# IF YOU CHANGED THE DISK VARIABLE IN THE FIRST SCRIPT YOU ALSO NEED TO CHANGE IT HERE
-ROOT_UUID=$(blkid -s UUID -o value /dev/sda3)
+ROOT_UUID=$(blkid -s UUID -o value /dev/"$ROOT")
 cat << EOF > /boot/loader/entries/arch.conf
 title Arch Linux
 linux /vmlinuz-linux

@@ -35,6 +35,7 @@ fi
 echo "Continuing with ${FW_TYPE} ${MODE} installation...";
 
 if [[ "$FW_TYPE" == "UEFI" && "$MODE" == "minimal" ]]; then
-    chmod +x minimal_uefi/install.sh
-    bash minimal_uefi/install.sh
+    cd minimal_uefi
+    chmod +x install.sh
+    bash install.sh
 fi
