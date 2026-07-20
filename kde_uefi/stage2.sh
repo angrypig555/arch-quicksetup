@@ -18,7 +18,8 @@ echo "arch-vm" > /etc/hostname
 echo "root password is root"
 echo  "root:root" | chpasswd
 useradd -m -G wheel user
-echo "created priviliged user without a password"
+echo "user:user" | chpasswd
+echo "created priviliged user with password user username user"
 echo "installing systemd-boot"
 bootctl install
 echo "creating boot entries and configs"
