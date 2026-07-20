@@ -27,7 +27,7 @@ default arch.conf
 timeout 0
 editor no
 EOF
-ROOT_UUID=$(blkid -s UUID -o value /dev/"$ROOT")
+ROOT_UUID=$(blkid -s UUID -o value "$ROOT")
 cat << EOF > /boot/loader/entries/arch.conf
 title Arch Linux
 linux /vmlinuz-linux
