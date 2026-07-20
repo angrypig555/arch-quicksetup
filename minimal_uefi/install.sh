@@ -28,7 +28,7 @@ mkfs.fat -F 32 -I "$ESP"
 
 echo "mounting disk"
 mount "$ROOT" /mnt
-mount --mkdir "$ESP" /mnt/boot
+mount --mkdir -o fmask=0137,dmask=0027 "$ESP" /mnt/boot
 swapon "$SWAP"
 
 echo "pacstrapping"
@@ -40,7 +40,7 @@ echo "starting stage 2"
 cp stage2.sh /mnt/root/
 chmod +x /mnt/root/stage2.sh
 
-arch-chroot /mnt /bin/bash -c "DISK='$DISK' ROOT='$ROOT' /root/stage2.sh"
+arch-chroot -S /mnt /bin/bash -c "DISK='$DISK' ROOT='$ROOT' /root/stage2.sh"
 
 echo "installation finished"
 echo "goodbye!"
