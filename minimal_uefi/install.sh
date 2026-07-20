@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 echo "arch vm autoinstall script"
 echo "only for amd64 UEFI vmware machines with the default config"
@@ -7,10 +8,10 @@ echo "this script is fully automatic and assumes you have an internet connection
 echo "setup starting in 10 seconds"
 sleep 10
 # IF YOU CHANGE THIS YOU ALSO NEED TO CHANGE THE DISK IN stage2.sh WHERE THE BOOTLOADER CONFIG IS GENERATED
-DISK="/dev/sda"
-ESP="/dev/sda1"
-SWAP="/dev/sda2"
-ROOT="/dev/sda3"
+
+ESP="${DISK}1"
+SWAP="${DISK}2"
+ROOT="${DISK}3"
 
 echo "partitioning disk"
 sfdisk "$DISK"<< EOF

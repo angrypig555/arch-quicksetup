@@ -1,4 +1,6 @@
 #!/bin/bash
+set -euo pipefail
+
 echo "arch-quicksetup stage 2"
 echo "enabling networking"
 systemctl enable NetworkManager.service
