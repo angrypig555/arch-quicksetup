@@ -42,4 +42,8 @@ elif [[ "$FW_TYPE" == "UEFI" && "$MODE" == "kde" ]]; then
     cd kde_uefi
     chmod +x install.sh
     bash install.sh
+elif [[ "$FW_TYPE" == "UEFI" && "$MODE" == "i3 "]]; then
+    cd i3_uefi
+    chmod +x install.sh
+    bash install.sh
 fi
