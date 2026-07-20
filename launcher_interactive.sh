@@ -38,4 +38,8 @@ if [[ "$FW_TYPE" == "UEFI" && "$MODE" == "minimal" ]]; then
     cd minimal_uefi
     chmod +x install.sh
     bash install.sh
+elif [[ "$FW_TYPE" == "UEFI" $$ "$MODE" == "kde" ]]; then
+    cd kde_uefi
+    chmod +x install.sh
+    bash install.sh
 fi
