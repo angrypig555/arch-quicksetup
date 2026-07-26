@@ -50,4 +50,8 @@ elif [[ "$FW_TYPE" == "MBR" && "$MODE" == "minimal" ]]; then
     cd minimal_mbr
     chmod +x install.sh
     bash install.sh
+elif [[ "$FW_TYPE" == "MBR" && "$MODE" == "kde" ]]; then
+    cd kde_mbr
+    chmod +x install.sh
+    bash install.sh
 fi
