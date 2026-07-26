@@ -32,7 +32,7 @@ mount --mkdir -o fmask=0137,dmask=0027 "$ESP" /mnt/boot
 swapon "$SWAP"
 
 echo "pacstrapping"
-pacstrap -K /mnt base linux linux-firmware nano vim sudo networkmanager ufw openssh
+pacstrap -K /mnt base linux linux-firmware nano vim sudo networkmanager ufw openssh open-vm-tools
 echo "generating fstab"
 genfstab -U /mnt >> /mnt/etc/fstab
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-echo "arch vm autoinstall script"
+echo "arch vm kde autoinstall script"
 echo "only for amd64 BIOS vmware machines with the default config"
 echo "if you want to change the timezone, feel free to modify the script"
 echo "this script is fully automatic and assumes you have an internet connection as you already downloaded this"
@@ -28,7 +28,7 @@ mount "$ROOT" /mnt
 swapon "$SWAP"
 
 echo "pacstrapping"
-pacstrap -K /mnt base linux linux-firmware nano vim sudo networkmanager ufw openssh grub open-vm-tools
+pacstrap -K /mnt base linux linux-firmware nano vim sudo networkmanager ufw openssh grub plasma-meta konsole firefox sddm dolphin open-vm-tools
 echo "generating fstab"
 genfstab -U /mnt >> /mnt/etc/fstab
 
